@@ -3,7 +3,7 @@
   hosts: localhost
   tasks:
     - debug:
-        msg: "state is {{state}} update_vars is {{update_vars_input}} project_path is {{project_path_input}} plan_file is {{plan_file_input}}"
+        msg: "state is {{state}} update_vars is {{update_vars_input}} project_path is {{project_path_input}} plan_file is {{plan_file_input}} ami is {{ami_input}}"
 
 # - name: create tfplan dont execute
 #   hosts: terraform
