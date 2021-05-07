@@ -1,0 +1,36 @@
+---
+- name: create tfplan dont execute
+  hosts: terraform
+  tasks:
+    - name: 
+      command: ls -latr
+
+# - name: create tfplan dont execute
+#   hosts: terraform
+#   tasks:
+#     - name: 
+#       community.general.terraform:
+#         project_path: "/home/ubuntu/terraform_project"
+#         plan_file: "/home/ubuntu/terraform_project/test.tfplan"
+#         state: "planned"
+#       register: output
+
+# - name: Apply from tfplan
+#   hosts: terraform
+#   tasks:
+#     - name: 
+#       community.general.terraform:
+#         project_path: "/home/ubuntu/terraform_project"
+#         plan_file: "/home/ubuntu/terraform_project/test.tfplan"
+#         state: "present"
+#       register: output
+
+# - name: Apply from tfplan
+#   hosts: terraform
+#   tasks:
+#     - name: 
+#       community.general.terraform:
+#         project_path: "/home/ubuntu/terraform_project"
+#         variables: 
+#           ami_name: "ami-00399ec92321828f5"
+#       register: output
