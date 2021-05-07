@@ -1,36 +1,37 @@
 ---
-- name: create tfplan dont execute
-  hosts: terraform
+- name: test vars
+  hosts: localhost
   tasks:
-    - name: 
-      command: ls -latr
+    - debug:
+        msg: "state is {{state}} update_vars is {{update_vars_input}} project_path is {{project_path_input}} plan_file is {{plan_file_input}}"
 
 # - name: create tfplan dont execute
 #   hosts: terraform
 #   tasks:
-#     - name: 
-#       community.general.terraform:
-#         project_path: "/home/ubuntu/terraform_project"
-#         plan_file: "/home/ubuntu/terraform_project/test.tfplan"
-#         state: "planned"
-#       register: output
+#     - include_role: 
+#         name: terraform
+#         tasks_from: create_plan.yml
+#     when: state == "create only"
 
 # - name: Apply from tfplan
 #   hosts: terraform
 #   tasks:
-#     - name: 
-#       community.general.terraform:
-#         project_path: "/home/ubuntu/terraform_project"
-#         plan_file: "/home/ubuntu/terraform_project/test.tfplan"
-#         state: "present"
-#       register: output
+#     - include_role: 
+#         name: terraform
+#         tasks_from: apply_plan.yml
+#     when: state = "apply only"
 
-# - name: Apply from tfplan
+# - name: Create and apply plan
 #   hosts: terraform
 #   tasks:
-#     - name: 
-#       community.general.terraform:
-#         project_path: "/home/ubuntu/terraform_project"
-#         variables: 
-#           ami_name: "ami-00399ec92321828f5"
-#       register: output
+#     - include_role: 
+#         name: terraform
+#     when: state = "apply and create"
+
+# - name: Set vriables
+#   hosts: terraform
+#   tasks:
+#     - include_role: 
+#         name: terraform
+#         tasks_form: update_terraform_vars.yml
+#     when: update_vars == true
