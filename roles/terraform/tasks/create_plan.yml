@@ -1,7 +1,7 @@
 ---
 - name: 
   community.general.terraform:
-    project_path: "/home/ubuntu/terraform_project"
-    plan_file: "/home/ubuntu/terraform_project/test.tfplan"
+    project_path: "{{project_path_input}}"
+    plan_file: "{{plan_file_input}}"
     state: "planned"
   register: output

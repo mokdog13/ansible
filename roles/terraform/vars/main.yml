@@ -1,2 +1,5 @@
 ---
 # vars file for terraform
+project_path_input: "/home/ubuntu/terraform_project"
+plan_file_input: "/home/ubuntu/terraform_project/test.tfplan"
+ami_input: "ami-00399ec92321828f5"
