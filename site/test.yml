@@ -27,5 +27,5 @@
   tasks:
     - include_role: 
         name: terraform
-        tasks_form: update_terraform_vars.yml
+        tasks_from: update_terraform_vars.yml
       when: update_vars == true
