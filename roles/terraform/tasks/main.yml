@@ -1,0 +1,4 @@
+---
+# tasks file for terraform
+- include: create_plan.yml
+- include: apply_plan.yml

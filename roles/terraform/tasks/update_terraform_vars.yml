@@ -1,0 +1,6 @@
+- name: 
+  community.general.terraform:
+    project_path: "/home/ubuntu/terraform_project"
+    variables: 
+      ami_name: "{{ami_input}}"
+  register: output

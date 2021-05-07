@@ -1,0 +1,7 @@
+---
+- name: 
+  community.general.terraform:
+    project_path: "/home/ubuntu/terraform_project"
+    plan_file: "/home/ubuntu/terraform_project/test.tfplan"
+    state: "present"
+  register: output
