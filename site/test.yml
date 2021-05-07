@@ -1,17 +1,11 @@
 ---
-- name: test vars
-  hosts: localhost
+- name: create tfplan dont execute
+  hosts: terraform
   tasks:
-    - debug:
-        msg: "state is {{state}} update_vars is {{update_vars_input}} project_path is {{project_path_input}} plan_file is {{plan_file_input}} ami is {{ami_input}} test is {{params_input}}"
-
-# - name: create tfplan dont execute
-#   hosts: terraform
-#   tasks:
-#     - include_role: 
-#         name: terraform
-#         tasks_from: create_plan.yml
-#     when: state == "create only"
+    - include_role: 
+        name: terraform
+        tasks_from: create_plan.yml
+    when: state == "create only"
 
 # - name: Apply from tfplan
 #   hosts: terraform
