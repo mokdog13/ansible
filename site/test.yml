@@ -13,14 +13,14 @@
     - include_role: 
         name: terraform
         tasks_from: apply_plan.yml
-      when: state = "apply only"
+      when: state == "apply only"
 
 - name: Create and apply plan
   hosts: terraform
   tasks:
     - include_role: 
         name: terraform
-      when: state = "apply and create"
+      when: state == "apply and create"
 
 - name: Set vriables
   hosts: terraform
