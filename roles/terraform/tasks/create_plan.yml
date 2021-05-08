@@ -4,4 +4,15 @@
     project_path: "{{project_path_input}}"
     plan_file: "{{plan_file_input}}"
     state: "planned"
-  register: output
+  when: update_vars_input == "false"
+
+- name: Create plan with vars. 
+  community.general.terraform:
+    project_path: "{{project_path_input}}"
+    variables: 
+      ami_name: "{{ami_input}}"
+      vpc_cidr_input: "{{vpc_cidr_block}}"
+      subnet_cidr_input: "{{subnet_cidr_block}}"
+    state: "planned"
+    plan_file: "{{plan_file_input}}"
+  when: update_vars_input == "true"

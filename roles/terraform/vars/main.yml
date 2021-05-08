@@ -3,3 +3,6 @@
 project_path_input: "/home/ubuntu/terraform_project"
 plan_file_input: "/home/ubuntu/terraform_project/test.tfplan"
 ami_input: "ami-00399ec92321828f5"
+vpc_cidr_block: "11.0.0.0/16"
+subnet_cidr_block: "11.0.1.0/24"
+config_file_path: "/home/ubuntu/config"

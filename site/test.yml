@@ -1,5 +1,5 @@
 ---
-- name: create tfplan dont execute
+- name: configure backend(new project)
   hosts: terraform
   gather_facts: no
   tasks:
@@ -7,6 +7,15 @@
         name: terraform
         tasks_from: config_backend.yml
       when: backend_config == "true"
+
+- name: deploy new project
+  hosts: terraform
+  gather_facts: no
+  tasks:
+    - include_role: 
+        name: terraform
+        tasks_from: deploy_project.yml
+      when: new_project == "true"
 
 - name: create tfplan dont execute
   hosts: terraform
@@ -34,11 +43,22 @@
         name: terraform
       when: state == "apply and create"
 
-- name: Set vriables
+# Commented this out since we set vars in create_plan. 
+# however leaving this in to show we can set vars on the fly
+# - name: Set vriables
+#   hosts: terraform
+#   gather_facts: no
+#   tasks:
+#     - include_role: 
+#         name: terraform
+#         tasks_from: update_terraform_vars.yml
+#       when: update_vars_input == "true"
+
+- name: Runtime backend config
   hosts: terraform
   gather_facts: no
   tasks:
     - include_role: 
         name: terraform
-        tasks_from: update_terraform_vars.yml
-      when: update_vars_input == "true"
+        tasks_from: update_backend_runtime.yml
+      when: backend_runtime == "true"

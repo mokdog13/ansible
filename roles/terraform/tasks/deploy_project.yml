@@ -1,0 +1,6 @@
+---
+- name: Deploy project
+  community.general.terraform:
+    force_init: true
+    project_path: '{{ project_path_input }}'
+    state: present
