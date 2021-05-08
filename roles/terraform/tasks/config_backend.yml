@@ -1,0 +1,7 @@
+---
+- name: Update backend using file
+  community.general.terraform:
+    project_path: "{{project_path_input}}"
+    state: present
+    backend_config_files:
+      - "{{config_file_path}}"

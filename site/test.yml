@@ -5,6 +5,15 @@
   tasks:
     - include_role: 
         name: terraform
+        tasks_from: config_backend.yml
+      when: backend_config == "true"
+
+- name: create tfplan dont execute
+  hosts: terraform
+  gather_facts: no
+  tasks:
+    - include_role: 
+        name: terraform
         tasks_from: create_plan.yml
       when: state == "create only"
 
