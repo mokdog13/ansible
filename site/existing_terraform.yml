@@ -1,0 +1,44 @@
+---
+- name: create tfplan dont execute
+  hosts: terraform
+  gather_facts: no
+  tasks:
+    - include_role: 
+        name: terraform
+        tasks_from: update_backend_runtime.yml
+      when: backend_config == "true"
+
+- name: create tfplan dont execute
+  hosts: terraform
+  gather_facts: no
+  tasks:
+    - include_role: 
+        name: terraform
+        tasks_from: create_plan.yml
+      when: state == "create only"
+
+- name: Apply from tfplan
+  hosts: terraform
+  gather_facts: no
+  tasks:
+    - include_role: 
+        name: terraform
+        tasks_from: apply_plan.yml
+      when: state == "apply only"
+
+- name: Create and apply plan
+  hosts: terraform
+  gather_facts: no
+  tasks:
+    - include_role: 
+        name: terraform
+      when: state == "apply and create"
+
+- name: Set vriables
+  hosts: terraform
+  gather_facts: no
+  tasks:
+    - include_role: 
+        name: terraform
+        tasks_from: update_terraform_vars.yml
+      when: update_vars_input == "true"

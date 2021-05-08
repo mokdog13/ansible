@@ -1,0 +1,5 @@
+---
+- name: run init command and link to backend file
+  shell: "terraform init -backend-config={{config_file_path}}"
+  args:
+    chdir: "{{project_path_input}}"
