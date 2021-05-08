@@ -1,6 +1,7 @@
 ---
 - name: create tfplan dont execute
   hosts: terraform
+  gather_facts: no
   tasks:
     - include_role: 
         name: terraform
@@ -9,6 +10,7 @@
 
 - name: Apply from tfplan
   hosts: terraform
+  gather_facts: no
   tasks:
     - include_role: 
         name: terraform
@@ -17,6 +19,7 @@
 
 - name: Create and apply plan
   hosts: terraform
+  gather_facts: no
   tasks:
     - include_role: 
         name: terraform
@@ -24,6 +27,7 @@
 
 - name: Set vriables
   hosts: terraform
+  gather_facts: no
   tasks:
     - include_role: 
         name: terraform
