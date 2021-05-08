@@ -41,7 +41,7 @@
   tasks:
     - include_role: 
         name: terraform
-      when: plan_type == "apply and create"
+      when: plan_type == "create and apply"
 
 # Commented this out since we set vars in create_plan. 
 # however leaving this in to show we can set vars on the fly
