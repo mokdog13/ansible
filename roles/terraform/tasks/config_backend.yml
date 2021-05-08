@@ -3,5 +3,6 @@
   community.general.terraform:
     project_path: "{{project_path_input}}"
     state: present
+    force_init: true
     backend_config_files:
       - "{{config_file_path}}"
