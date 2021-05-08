@@ -1,13 +1,4 @@
 ---
-- name: deploy new project
-  hosts: terraform
-  gather_facts: no
-  tasks:
-    - include_role: 
-        name: terraform
-        tasks_from: deploy_project.yml
-      when: new_project == "true"
-      
 - name: configure backend from config file
   hosts: terraform
   gather_facts: no
@@ -16,6 +7,15 @@
         name: terraform
         tasks_from: config_backend.yml
       when: backend_config == "true"
+      
+- name: deploy new project
+  hosts: terraform
+  gather_facts: no
+  tasks:
+    - include_role: 
+        name: terraform
+        tasks_from: deploy_project.yml
+      when: new_project == "true"
 
 - name: create tfplan dont execute
   hosts: terraform
