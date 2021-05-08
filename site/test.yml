@@ -1,5 +1,5 @@
 ---
-- name: configure backend(new project)
+- name: configure backend from config file
   hosts: terraform
   gather_facts: no
   tasks:
@@ -53,12 +53,3 @@
 #         name: terraform
 #         tasks_from: update_terraform_vars.yml
 #       when: update_vars_input == "true"
-
-- name: Runtime backend config
-  hosts: terraform
-  gather_facts: no
-  tasks:
-    - include_role: 
-        name: terraform
-        tasks_from: update_backend_runtime.yml
-      when: backend_runtime == "true"
