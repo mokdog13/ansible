@@ -3,4 +3,6 @@
     project_path: "/home/ubuntu/terraform_project"
     variables: 
       ami_name: "{{ami_input}}"
+      vpc_cidr_input: "{{vpc_cidr_block}}"
+      subnet_cidr_input: "{{subnet_cidr_block}}"
   register: output
