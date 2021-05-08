@@ -24,7 +24,7 @@
     - include_role: 
         name: terraform
         tasks_from: create_plan.yml
-      when: state == "create only"
+      when: plan_type == "create only"
 
 - name: Apply from tfplan
   hosts: terraform
@@ -33,7 +33,7 @@
     - include_role: 
         name: terraform
         tasks_from: apply_plan.yml
-      when: state == "apply only"
+      when: plan_type == "apply only"
 
 - name: Create and apply plan
   hosts: terraform
@@ -41,7 +41,7 @@
   tasks:
     - include_role: 
         name: terraform
-      when: state == "apply and create"
+      when: plan_type == "apply and create"
 
 # Commented this out since we set vars in create_plan. 
 # however leaving this in to show we can set vars on the fly
