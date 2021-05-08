@@ -1,4 +1,11 @@
 ---
+- name: test vars
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - debug:
+        msg: "state = {{state}}"
+
 - name: create tfplan dont execute
   hosts: terraform
   gather_facts: no
