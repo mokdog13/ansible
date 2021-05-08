@@ -32,4 +32,4 @@
     - include_role: 
         name: terraform
         tasks_from: update_terraform_vars.yml
-      when: update_vars_input == true
+      when: update_vars_input == "true"
