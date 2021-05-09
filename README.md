@@ -6,6 +6,7 @@
 * These paramters are then used to be inserted into the ansible code.
 * Also note I ran this on a terraform host. This could easily be converted to localhost as well if the terraform project is also located on the same server as jenkins. 
 * During the demo I will walk through how I have the terraform project setup, the jenkins pipeline configuration, and lastly run the pipeline for the various tasks listed below.
+* For my pipeline I call site/terraform_project.yml. This is the main playbook to complete everything. Depending on the vars passed in from jenkins will determine what is ran from the playbook. 
 # Functionality #
 * Ability to set backend configuration during runtime
   * If you check roles/terraform/tasks/config_backend you can see how I used the built in terraform role
